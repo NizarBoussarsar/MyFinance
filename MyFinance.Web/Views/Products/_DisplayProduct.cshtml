@@ -1,0 +1,21 @@
+﻿@model Product
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length <= length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+@{string path = "~/Content/Upload/" + @Model.ImageName;}
+<div style="float:left; margin:5px;">
+    <img alt="Produit" src="@Url.Content(path)" width="50" height="50" />
+    <p>@Truncate(Model.Description, 25)</p>
+    <p>@Model.Price</p>
+    <p>@Html.ActionLink("Details", "Details", new { id = Model.ProductId })</p>
+</div>

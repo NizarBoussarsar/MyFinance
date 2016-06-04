@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>
+                <div>
+                    Search by category: @Html.TextBox("categoryName")
+                </div>
+            </td>
+            <td>
+                <input type="submit" value="Search" id="submit" />
+            </td>
+            <td>
+                @ViewBag.Message
+
+            </td>
+        </tr>
+    </table>
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div style="display:block;">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+
+            @Html.Partial("_DisplayProduct", item)
+
+        }
+    }
+</div>
+
+<div style="clear:both;"></div>

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D503A57D-A921-4034-ADF1-F6AF4650DA1A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyFinance.Data</RootNamespace>
+    <AssemblyName>MyFinance.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configurations\AddressConfiguration.cs" />
+    <Compile Include="Configurations\CategoryConfiguration.cs" />
+    <Compile Include="Configurations\ProductConfiguration.cs" />
+    <Compile Include="Infrastructure\DatabaseFactory.cs" />
+    <Compile Include="Infrastructure\Disposable.cs" />
+    <Compile Include="Infrastructure\IDatabaseFactory.cs" />
+    <Compile Include="Infrastructure\IRepository.cs" />
+    <Compile Include="Infrastructure\IUnitOfWork.cs" />
+    <Compile Include="Infrastructure\RepositoryBase.cs" />
+    <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\201409251551536_InitialCreate.cs" />
+    <Compile Include="Migrations\201409251551536_InitialCreate.Designer.cs">
+      <DependentUpon>201409251551536_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409251607235_ModifyNameImage.cs" />
+    <Compile Include="Migrations\201409251607235_ModifyNameImage.Designer.cs">
+      <DependentUpon>201409251607235_ModifyNameImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409301348131_dataAnnotation.cs" />
+    <Compile Include="Migrations\201409301348131_dataAnnotation.Designer.cs">
+      <DependentUpon>201409301348131_dataAnnotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409301355502_updateProductTableName.cs" />
+    <Compile Include="Migrations\201409301355502_updateProductTableName.Designer.cs">
+      <DependentUpon>201409301355502_updateProductTableName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409301440571_v1.cs" />
+    <Compile Include="Migrations\201409301440571_v1.Designer.cs">
+      <DependentUpon>201409301440571_v1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409301509556_fluentAPI+Configurations.cs" />
+    <Compile Include="Migrations\201409301509556_fluentAPI+Configurations.Designer.cs">
+      <DependentUpon>201409301509556_fluentAPI+Configurations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410091548277_MVCMigration.cs" />
+    <Compile Include="Migrations\201410091548277_MVCMigration.Designer.cs">
+      <DependentUpon>201410091548277_MVCMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="MyFinanceContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CategoryRepository .cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\ProviderRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyFinance.Domain\MyFinance.Domain.csproj">
+      <Project>{258938ec-d4fe-467a-9026-ccd8e6a81ac3}</Project>
+      <Name>MyFinance.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201409251551536_InitialCreate.resx">
+      <DependentUpon>201409251551536_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409251607235_ModifyNameImage.resx">
+      <DependentUpon>201409251607235_ModifyNameImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409301348131_dataAnnotation.resx">
+      <DependentUpon>201409301348131_dataAnnotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409301355502_updateProductTableName.resx">
+      <DependentUpon>201409301355502_updateProductTableName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409301440571_v1.resx">
+      <DependentUpon>201409301440571_v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409301509556_fluentAPI+Configurations.resx">
+      <DependentUpon>201409301509556_fluentAPI+Configurations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410091548277_MVCMigration.resx">
+      <DependentUpon>201410091548277_MVCMigration.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
